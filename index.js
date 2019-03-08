@@ -9,7 +9,7 @@ function renderSearchResults(data) {
   let repoList = data.items.map(repo => `<ul>
                                           <li><strong>${repo.name}:</strong>
                                             ${repo.description}
-                                            <a href="#" data-repo="${repo}"><button onclick="showCommits(data-repo)">Show Commits</button></a></li>
+                                            <a onclick="showCommits(this)" data-repo="${repo.name}" data-owner="${repo.owner.login}">See Commits</a></li>
                                           </ul>`)
   return repoList
 }
@@ -31,4 +31,10 @@ function showCommits(repo) {
 }
 
 function renderCommits(data) {
+  let commitsList = data.map(commit => `<ul>
+                                          <li><h3>${commit.sha}</h3>
+                                          <p>${commit.commit.message}</p>
+                                            ${commit.url}</li>
+                                        </ul>`)
+  return commitsList
 }
