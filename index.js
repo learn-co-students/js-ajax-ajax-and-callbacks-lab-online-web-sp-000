@@ -1,13 +1,13 @@
 var renderCommit = (commit) => {
-  return `<li><h3>${commit.sha}</h3><p>${commit.commit.message}</p></li>`
+  return `<h3>${commit.sha}</h3><p>${commit.commit.message}</p>`
 }
 
 var commitResults = (data) => {
   let result = data.map((commit)=>renderCommit(commit)).join('')
-  return `<ul>${result}</ul>`
+  return result
 }
 
-function showCommits(repo) { repo =>
+function showCommits(repo) {
   $.get(`https://api.github.com/repos/${repo.dataset.owner}/${repo.dataset.repository}/commits`, data => {
     $('#details').html(commitResults(data))
   })
