@@ -30,7 +30,11 @@ function searchRepositories() {
   let url = 'https://api.github.com/search/repositories?q=' + term
   $.get(url).done(function(data) {
     $('#results').html(searchResults(data))
-  })
+  }).fail(error => {displayError()})
+}
+
+function displayError() {
+  $('#errors').html("I'm sorry, there's been an error. Please try again.")
 }
 
 $(document).ready(function (){
