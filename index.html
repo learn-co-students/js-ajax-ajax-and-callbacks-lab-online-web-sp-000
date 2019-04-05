@@ -18,20 +18,29 @@
       }
     </style>
   </head>
+
   <body>
     <main id="main">
       <div id="errors"></div>
     </main>
+
     <div class="flexbox-container">
+      <form id="form1" onsubmit="searchRepositories();return false;">
+        <input type="text" id="searchTerms"><br>
+        <a href="#" onclick="document.getElementById('form1').submit();">Search</a>
+      </form>
       <div>
         <h3>Repositories</h3>
         <div id="results"></div>
       </div>
+
       <div>
         <h3>Details</h3>
         <div id="details"></div>
       </div>
+
     </div>
+
     <script src="jquery-3.1.0.min.js"></script>
     <script src="index.js"></script>
   </body>
