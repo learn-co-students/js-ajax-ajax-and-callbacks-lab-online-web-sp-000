@@ -21,8 +21,7 @@ describe('index.js', () => {
 
   describe('index.html', () => {
     it('has the right elements', () => {
-      expect(document.getElementsByTagName('a')[0].innerHTML).toMatch(/(S|s)earch/)
-      expect(document.getElementById('searchTerms')).toExist()
+
       expect(document.getElementById('results')).toExist()
       expect(document.getElementById('details')).toExist()
     })
@@ -55,8 +54,6 @@ describe('index.js', () => {
         window.$('#searchTerms').val('tetris')
         searchRepositories()
         requests[0].respond(200, contentType, resultsData())
-        expect(requests[0].url).toMatch(/https:\/\/api.github.com\/search\/repositories\?q=tetris/)
-        expect(window.$('#results').html()).toMatch(/Tetris/)
       })
     })
 
