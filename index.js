@@ -3,9 +3,9 @@ $(document).ready(function () {
 });
 
 function searchRepositories() {
-    const searchTerm = $('#searchTerms').val();
+    const search = $('#searchTerms').val();
 
-    $.get(`https://api.github.com/search/repositories?q=${searchTerm}`, function (data) {
+    $.get(`https://api.github.com/search/repositories?q=${search}`, function (data) {
 
         showRepositiories(data);
     }).fail(function (error) {
